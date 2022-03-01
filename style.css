@@ -1,20 +1,45 @@
-.body {
+body {
     height: 100%;
     display: flex;
+    flex-direction: column;
     justify-content: center;
     align-items: center;
     width: auto;
+    margin: 0;
+    padding: 0;
+    background-color: bisque;
+}
+
+div.resetButton {
+    margin-top: 30px;
+    margin-left: 100px;
+    margin-right: 100px;
+    margin-bottom: 20px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex: 0 0 0;
+}
+
+button {
+    width: 120px;
+    height: 50px;
+    font-size: 1.6em;
+    background-color: white;
 }
 
 div.container {
     display: flex;
     flex-direction: column;
-    height: 100vh;
+    height: auto;
     width: auto;
-    margin: 0 100px;
+    margin: 0;
     justify-content: center;
     align-items: center;
+    flex: 1;
 }
+
+
 
 .boxes {
     background-color: white;
