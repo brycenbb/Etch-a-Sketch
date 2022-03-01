@@ -54,26 +54,23 @@ button.addEventListener('click',function() {
         let row = document.createElement('div');
         row.style.display = "flex";
         row.style.flexDirection = "row";
-        var side = Math.floor(640/count);
-        row.style.width = side * count;
-        row.style.height = side;
+        let side = Math.floor(640/count);
+        let totalwidth = side * count;
+        row.style.width = String(totalwidth) + "px";
+        row.style.height = String(side) + "px";
         row.style.justifyContent = "center";
         row.style.alignItems = "center";
         container.appendChild(row);
-        console.log("I was here");
         for(let j = 0; j < count; j++){
             let box = document.createElement('div');
             box.classList.add("boxes");
-            box.style.width = side;
-            box.style.height = side;
+            box.style.width = String(side) + "px";
+            box.style.height = String(side) + "px";
             box.style.border = "1px solid black"
             row.appendChild(box);
         }
     }
-    console.log(side);
-    console.log(count);
-    console.log(typeof side);
-    console.log(typeof count);
+    
 
 })
 
