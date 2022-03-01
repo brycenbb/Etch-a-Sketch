@@ -1,14 +1,25 @@
-.container {
+.body {
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: auto;
+}
+
+div.container {
     display: flex;
     flex-direction: column;
+    height: 100vh;
+    width: auto;
+    margin: 0 100px;
+    justify-content: center;
+    align-items: center;
 }
 
-div.box {
-    width: 100px;
-    height: 100px;
+.boxes {
+    background-color: white;
 }
 
-div.row {
-    display: flex;
-    flex: 1;
+.boxes.hover {
+    background-color: grey;
 }
