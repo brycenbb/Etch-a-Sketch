@@ -70,7 +70,16 @@ button.addEventListener('click',function() {
             row.appendChild(box);
         }
     }
+    //Event handler for when mouse enters/exists
+
+    const box2 = document.querySelectorAll('.boxes');
+    for(let i = 0; i < box2.length; i++){
+        box2[i].addEventListener('mouseenter', function(){
+            box2[i].classList.add("hover");
+    })
+}
     
 
 })
+
 
