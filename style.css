@@ -1,0 +1,9 @@
+.container {
+    display: flex;
+    flex-direction: column;
+}
+
+div.box {
+    width: 100px;
+    height: 100px;
+}
