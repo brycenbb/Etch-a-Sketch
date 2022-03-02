@@ -4,6 +4,7 @@ const pictureFrame = document.querySelector('.lastpic');
 for(let i = 0; i < 16; i++){
     let row = document.createElement('div');
     row.style.display = "flex";
+    row.style.flexShrink = "1";
     row.style.flexDirection = "row";
     row.style.width = "960px";
     row.style.height = "60px";
@@ -14,6 +15,7 @@ for(let i = 0; i < 16; i++){
         let box = document.createElement('div');
         box.classList.add("boxes");
         box.style.width = "60px";
+        box.style.flexShrink = "1";
         box.style.height = "60px";
         box.style.border = "1px solid black"
         row.appendChild(box);
@@ -32,11 +34,38 @@ for(let i = 0; i < box.length; i++){
 //Event handler for resetting the stage and setting the box count, max 100, min 4
 const button = document.querySelector('button');
 button.addEventListener('click',function() {
+    //Only newest 'picture' should be shown
+    while(pictureFrame.hasChildNodes()){
+        pictureFrame.removeChild(pictureFrame.firstChild);
+    }
+
     //cloning picture for presentation
     let picture = container.cloneNode(true);
+    
+    //Somewhere in thesee comments makes the rows go side by side
+    // picture.style.maxHeight = "300px";
+    // picture.style.maxWidth = "300px";
+    // picture.style.display = "flex";
+    // picture.style.overflow = "hidden";
+    // picture.style.flexShrink = "1";
+
+    //These comments too make rows side by side for now?
+    picture.style.display = "flex";
+    picture.style.flexDirection = "column";
+    picture.style.maxHeight = "300px";
+    picture.style.maxWidth = "300px";
+    picture.style.minWidth = "0";
+    picture.style.minHeight = "0";
+    picture.style.width = "300px";
+    picture.style.height = "300px";
+
+
+
+
+
+
     picture.classList.remove("container");
     pictureFrame.appendChild(picture);
-    pictureFrame.style.width = "fit-content";
 
 
     //Removing boxes. Might be uneeded since I later remove the boxes entirely?
@@ -68,13 +97,17 @@ button.addEventListener('click',function() {
         row.style.height = String(side) + "px";
         row.style.justifyContent = "center";
         row.style.alignItems = "center";
-        row.style.flex = "1 1 0";
+        row.style.flexShrink = "1";
+        row.style.minWidth = "0";
+        row.style.minHeight = "0";
         container.appendChild(row);
         for(let j = 0; j < count; j++){
             let box = document.createElement('div');
             box.classList.add("boxes");
             box.style.width = String(side) + "px";
             box.style.height = String(side) + "px";
+            box.style.minWidth = "0";
+            box.style.minHeight = "0";
             box.style.border = "1px solid black"
             row.appendChild(box);
         }
