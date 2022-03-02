@@ -1,6 +1,29 @@
 const container = document.querySelector('.container');
 const pictureFrame = document.querySelector('.lastpic');
 
+
+function rgb(r, g, b){
+    return "rgb("+r+","+g+","+b+")";
+}
+
+function randomNum() {
+    return Math.floor(Math.random()*256);
+}
+
+function randomColor() {
+    return rgb(randomNum(),randomNum(),randomNum());
+}
+
+function adjustColor(obj) {
+    let bgcolor = obj.style.backgroundColor;
+    let vals = bgcolor.substring(bgcolor.indexOf('(') +1, bgcolor.length -1).split(', ').map(Number);
+    for(i = 0; i < vals.length;i++){
+        vals[i] = Math.floor(vals[i] * 0.9);
+    }
+    obj.style.backgroundColor = rgb(vals[0],vals[1],vals[2]);
+}
+
+
 //Creates the grid of squares with a tiny border (640px each side)
 for(let i = 0; i < 16; i++){
     let row = document.createElement('div');
@@ -16,6 +39,7 @@ for(let i = 0; i < 16; i++){
         let box = document.createElement('div');
         box.classList.add("boxes");
         box.style.width = "60px";
+        box.style.backgroundColor = "white";
         box.style.flexShrink = "1";
         box.style.height = "60px";
         box.style.border = "1px solid black"
@@ -28,7 +52,14 @@ for(let i = 0; i < 16; i++){
 const box = document.querySelectorAll('.boxes');
 for(let i = 0; i < box.length; i++){
     box[i].addEventListener('mouseenter', function(){
-        box[i].classList.add("hover");
+        // box[i].classList.add("hover");
+        //Adding random color functionality
+        if(box[i].style.backgroundColor === "white"){
+            box[i].style.backgroundColor = randomColor();
+        }
+        else{
+            adjustColor(box[i]);
+        }
     })
 }
 
@@ -127,6 +158,7 @@ button.addEventListener('click',function() {
             box.style.width = String(side) + "px";
             box.style.height = String(side) + "px";
             box.style.minWidth = "0";
+            box.style.backgroundColor = "white";
             box.style.minHeight = "0";
             box.style.border = "1px solid black"
             row.appendChild(box);
@@ -138,7 +170,15 @@ button.addEventListener('click',function() {
     const box2 = document.querySelectorAll('.container .boxes');
     for(let i = 0; i < box2.length; i++){
         box2[i].addEventListener('mouseenter', function(){
-            box2[i].classList.add("hover");
+            // box2[i].classList.add("hover");
+            //Adding random color functionality
+            if(box2[i].style.backgroundColor === "white"){
+             box2[i].style.backgroundColor = randomColor();
+            }
+            else{
+                adjustColor(box2[i]);
+            }
+
     })
 }
     
