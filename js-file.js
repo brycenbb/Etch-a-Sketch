@@ -1,6 +1,6 @@
 const container = document.querySelector('.container');
 const pictureFrame = document.querySelector('.lastpic');
-
+let counter = 1;
 
 function rgb(r, g, b){
     return "rgb("+r+","+g+","+b+")";
@@ -23,6 +23,16 @@ function adjustColor(obj) {
     obj.style.backgroundColor = rgb(vals[0],vals[1],vals[2]);
 }
 
+function toggleText(obj) {
+    if(counter === 1){
+        obj.textContent = "Rainbow Colors: \r\non";
+        counter = 0;
+    }
+    else {
+        obj.textContent = "Rainbow Colors: \r\noff";
+        counter = 1;
+    }
+}
 
 //Creates the grid of squares with a tiny border (640px each side)
 for(let i = 0; i < 16; i++){
@@ -47,21 +57,32 @@ for(let i = 0; i < 16; i++){
     }
 }
 
-//Event handler for when mouse enters/exists
-
+//Event handler for when mouse enters/exists. The color changes are handled here
 const box = document.querySelectorAll('.boxes');
 for(let i = 0; i < box.length; i++){
     box[i].addEventListener('mouseenter', function(){
-        // box[i].classList.add("hover");
-        //Adding random color functionality
-        if(box[i].style.backgroundColor === "white"){
-            box[i].style.backgroundColor = randomColor();
+        if(counter === 1){
+            if(box[i].style.backgroundColor === "white"){
+                box[i].style.backgroundColor = "grey";
+            }
         }
         else{
-            adjustColor(box[i]);
+            //Adding random color functionality
+            if(box[i].style.backgroundColor === "white"){
+                box[i].style.backgroundColor = randomColor();
+            }
+            else{
+                adjustColor(box[i]);
+            }
         }
     })
 }
+
+//Event handler for changing the color scheme. Toggles it on and off
+const colorbutton = document.querySelector('#Rainbow');
+colorbutton.addEventListener('click', function(){
+    toggleText(colorbutton);
+})
 
 //Event handler for resetting the stage and setting the box count, max 100, min 4
 const button = document.querySelector('button');
@@ -165,23 +186,26 @@ button.addEventListener('click',function() {
         }
     }
 
-    //Event handler for when mouse enters/exists
-
+    //Event handler for when mouse enters/exists for new grid
     const box2 = document.querySelectorAll('.container .boxes');
     for(let i = 0; i < box2.length; i++){
         box2[i].addEventListener('mouseenter', function(){
-            // box2[i].classList.add("hover");
-            //Adding random color functionality
-            if(box2[i].style.backgroundColor === "white"){
-             box2[i].style.backgroundColor = randomColor();
+            if(counter === 1){
+                if(box2[i].style.backgroundColor === "white"){
+                    box2[i].style.backgroundColor = "grey";
+                }
             }
             else{
-                adjustColor(box2[i]);
+                //Adding random color functionality
+                if(box2[i].style.backgroundColor === "white"){
+                    box2[i].style.backgroundColor = randomColor();
+                }
+                else{
+                    adjustColor(box2[i]);
+                }
             }
-
-    })
-}
-    
+        })
+    }
 
 })
 
