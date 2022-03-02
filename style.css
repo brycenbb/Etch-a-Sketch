@@ -86,3 +86,11 @@ p {
     text-align: center;
     font-size: 6em;
 }
+
+#Rainbow {
+    width: 240px;
+    height: 100px;
+    background-color: pink;
+    color: green;
+    font-weight: bold;
+}
