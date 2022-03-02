@@ -45,7 +45,21 @@ button.addEventListener('click',function() {
 
     //cloning picture for presentation
     let picture = container.cloneNode(true);
-    
+
+    //Setting the sizes of rows/boxes to fit in 300px square
+    let childrows = picture.childNodes;
+    console.log(childrows.length);
+    for(let i = 0; i < childrows.length; i++) {
+        childrows[i].style.width = "300px";
+        let rowHeight = 300/childrows.length;
+        childrows[i].style.height = String(rowHeight) + "px";
+        let childboxes = childrows[i].childNodes;
+        for(let j = 0; j < childboxes.length; j++ ) {
+            childboxes[j].style.width = String(rowHeight) + "px";
+            childboxes[j].style.height = String(rowHeight) + "px";
+        }
+    }
+
     //Somewhere in thesee comments makes the rows go side by side
     // picture.style.maxHeight = "300px";
     // picture.style.maxWidth = "300px";
@@ -54,14 +68,14 @@ button.addEventListener('click',function() {
     // picture.style.flexShrink = "1";
 
     //These comments too make rows side by side for now?
-    picture.style.display = "flex";
-    picture.style.flexDirection = "column";
-    picture.style.maxHeight = "300px";
-    picture.style.maxWidth = "300px";
-    picture.style.minWidth = "0";
-    picture.style.minHeight = "0";
-    picture.style.width = "300px";
-    picture.style.height = "300px";
+    // picture.style.display = "flex";
+    // picture.style.flexDirection = "column";
+    // picture.style.maxHeight = "300px";
+    // picture.style.maxWidth = "300px";
+    // picture.style.minWidth = "0";
+    // picture.style.minHeight = "0";
+    // picture.style.width = "300px";
+    // picture.style.height = "300px";
 
 
 
@@ -101,9 +115,6 @@ button.addEventListener('click',function() {
         let totalwidth = side * count;
         row.style.width = String(totalwidth) + "px";
         row.style.height = String(side) + "px";
-        
-
-
         row.style.justifyContent = "center";
         row.style.alignItems = "center";
         row.style.flexShrink = "1";
@@ -113,15 +124,10 @@ button.addEventListener('click',function() {
         for(let j = 0; j < count; j++){
             let box = document.createElement('div');
             box.classList.add("boxes");
-
-
             box.style.width = String(side) + "px";
             box.style.height = String(side) + "px";
             box.style.minWidth = "0";
             box.style.minHeight = "0";
-           
-
-
             box.style.border = "1px solid black"
             row.appendChild(box);
         }
