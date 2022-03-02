@@ -56,8 +56,6 @@ button.addEventListener('click',function() {
         row.style.flexDirection = "row";
         let side = Math.round(960/count);
         let totalwidth = side * count;
-        // row.style.maxWidth = "960px";
-        // row.style.maxHeight = "60px";
         row.style.width = String(totalwidth) + "px";
         row.style.height = String(side) + "px";
         row.style.justifyContent = "center";
@@ -73,6 +71,7 @@ button.addEventListener('click',function() {
             row.appendChild(box);
         }
     }
+    
     //Event handler for when mouse enters/exists
 
     const box2 = document.querySelectorAll('.boxes');

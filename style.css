@@ -48,3 +48,22 @@ div.container {
 .boxes.hover {
     background-color: grey;
 }
+
+div.middleRow {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    width: 100%;
+}
+
+div.title,
+div.placeholder {
+    width: 20%;
+    height: 100%;
+}
+
+p {
+    text-align: center;
+    font-size: 6em;
+    margin-left: 100px;
+}
