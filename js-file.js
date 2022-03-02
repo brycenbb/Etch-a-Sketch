@@ -1,9 +1,6 @@
 const container = document.querySelector('.container');
-
-
-
-
 const pictureFrame = document.querySelector('.lastpic');
+
 //Creates the grid of squares with a tiny border (640px each side)
 for(let i = 0; i < 16; i++){
     let row = document.createElement('div');
@@ -53,10 +50,13 @@ button.addEventListener('click',function() {
         childrows[i].style.width = "300px";
         let rowHeight = 300/childrows.length;
         childrows[i].style.height = String(rowHeight) + "px";
+        // if(childrows.length >= 80) {childrows[i].style.border = "0";}
         let childboxes = childrows[i].childNodes;
         for(let j = 0; j < childboxes.length; j++ ) {
             childboxes[j].style.width = String(rowHeight) + "px";
             childboxes[j].style.height = String(rowHeight) + "px";
+            // if(childrows.length >= 80) {childboxes[j].style.border = "0";}
+
         }
     }
 
