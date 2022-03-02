@@ -1,5 +1,5 @@
 const container = document.querySelector('.container');
-
+const pictureFrame = document.querySelector('.lastpic');
 //Creates the grid of squares with a tiny border (640px each side)
 for(let i = 0; i < 16; i++){
     let row = document.createElement('div');
@@ -32,9 +32,17 @@ for(let i = 0; i < box.length; i++){
 //Event handler for resetting the stage and setting the box count, max 100, min 4
 const button = document.querySelector('button');
 button.addEventListener('click',function() {
-    for(let i = 0; i < box.length; i++){
-        box[i].classList.remove("hover");
-    }
+    //cloning picture for presentation
+    let picture = container.cloneNode(true);
+    picture.classList.remove("container");
+    pictureFrame.appendChild(picture);
+    pictureFrame.style.width = "fit-content";
+
+
+    //Removing boxes. Might be uneeded since I later remove the boxes entirely?
+    // for(let i = 0; i < box.length; i++){
+    //     box[i].classList.remove("hover");
+    // }
     
     //Setting box count
     let count = Number(prompt("Please enter the amount of boxes on each side you would like:"))
@@ -54,7 +62,6 @@ button.addEventListener('click',function() {
         let row = document.createElement('div');
         row.style.display = "flex";
         row.style.flexDirection = "row";
-        // let side = Math.floor(960/count);
         let side = 960/count;
         let totalwidth = side * count;
         row.style.width = String(totalwidth) + "px";
@@ -75,7 +82,7 @@ button.addEventListener('click',function() {
 
     //Event handler for when mouse enters/exists
 
-    const box2 = document.querySelectorAll('.boxes');
+    const box2 = document.querySelectorAll('.container .boxes');
     for(let i = 0; i < box2.length; i++){
         box2[i].addEventListener('mouseenter', function(){
             box2[i].classList.add("hover");

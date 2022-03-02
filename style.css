@@ -64,11 +64,28 @@ div.placeholder {
     height: 100%;
 }
 
+div.title {
+    display: flex;
+    flex-direction: column;
+    /* justify-content: center; */
+    align-items: center;
+}
+
+div.lastpic {
+    margin-left: 100px;
+
+    min-width: 300px;
+    min-height: 300px;
+    max-width: 300px;
+    max-height: 300px;
+}
+
 p {
+    margin-left: 100px;
+
     color: darkred;
     font-weight: bold;
     font-style:italic;
     text-align: center;
     font-size: 6em;
-    margin-left: 100px;
 }
