@@ -31,15 +31,15 @@ button {
 div.container {
     display: flex;
     flex-direction: column;
-    height: 960px;
-    width: 960px;
+    min-height: 960px;
+    min-width: 960px;
+    max-height: 960px;
+    max-width: 960px;
     margin: 0;
     justify-content: center;
     align-items: center;
     flex: 0 1 0;
 }
-
-
 
 .boxes {
     background-color: white;

@@ -54,7 +54,8 @@ button.addEventListener('click',function() {
         let row = document.createElement('div');
         row.style.display = "flex";
         row.style.flexDirection = "row";
-        let side = Math.round(960/count);
+        // let side = Math.floor(960/count);
+        let side = 960/count;
         let totalwidth = side * count;
         row.style.width = String(totalwidth) + "px";
         row.style.height = String(side) + "px";
@@ -71,7 +72,7 @@ button.addEventListener('click',function() {
             row.appendChild(box);
         }
     }
-    
+
     //Event handler for when mouse enters/exists
 
     const box2 = document.querySelectorAll('.boxes');
