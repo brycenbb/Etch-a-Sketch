@@ -43,10 +43,6 @@ div.container {
     flex: 0 1 0;
 }
 
-.boxes {
-    background-color: white;
-}
-
 .boxes.hover {
     background-color: grey;
 }
