@@ -54,12 +54,15 @@ button.addEventListener('click',function() {
         let row = document.createElement('div');
         row.style.display = "flex";
         row.style.flexDirection = "row";
-        let side = Math.floor(640/count);
+        let side = Math.round(960/count);
         let totalwidth = side * count;
+        // row.style.maxWidth = "960px";
+        // row.style.maxHeight = "60px";
         row.style.width = String(totalwidth) + "px";
         row.style.height = String(side) + "px";
         row.style.justifyContent = "center";
         row.style.alignItems = "center";
+        row.style.flex = "1 1 0";
         container.appendChild(row);
         for(let j = 0; j < count; j++){
             let box = document.createElement('div');
