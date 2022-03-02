@@ -58,13 +58,13 @@ div.middleRow {
     width: 100%;
 }
 
-div.title,
+div.left,
 div.placeholder {
     width: 20%;
     height: 100%;
 }
 
-div.title {
+div.left {
     display: flex;
     flex-direction: column;
     /* justify-content: center; */
@@ -72,8 +72,9 @@ div.title {
 }
 
 div.lastpic {
+    display: flex;
+    flex-shrink: 1;
     margin-left: 100px;
-
     min-width: 300px;
     min-height: 300px;
     max-width: 300px;
